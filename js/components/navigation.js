@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { push as Menu } from "react-burger-menu";
 import { connect } from "react-redux";
-import { trainerName } from "../actions/index";
+import { trainerName, clientName } from "../actions/index";
 
 class Nav extends Component {
   constructor(props) {
     super(props);
+    this.addClient = this.addClient.bind(this);
     this.changeTrainerName = this.changeTrainerName.bind(this);
+  }
+  addClient() {
+    var name = prompt("Add Client: ");
+    console.log(name);
+    this.props.dispatch(clientName(name));
   }
   changeTrainerName() {
     var name = prompt("New trainer name:");
@@ -20,6 +26,9 @@ class Nav extends Component {
           <div className="bm-menu-wrap">
             <div className="bm-menu">
               <nav className="bm-item-list">
+                <a className="menu-item" onClick={this.addClient}>
+                  Add Client
+                </a>
                 <a className="menu-item" onClick={this.changeTrainerName}>
                   Change Username
                 </a>

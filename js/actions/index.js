@@ -6,3 +6,11 @@ export const trainerName = newName => {
     payload: newName
   };
 };
+
+export const CLIENT_NAME = "CLIENT_NAME";
+export const clientName = newName => {
+  return {
+    type: CLIENT_NAME,
+    payload: newName
+  };
+};
